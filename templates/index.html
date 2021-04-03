@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" Content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Please input a country code</title>
+</head>
+<body>
+    <div class="container">
+        <H1 style="color:white"> Search Capital City.com</H1>
+        <img src="../static/world_map.png" alt="Map" class="'logo", width="300" height="300">
+        {% if message %}
+         <p style="color:white;" class="message">{{ message | safe }}</p>
+        {% endif %}
+        <form action="/submit" method="POST" >
+            <input type="text"
+                   name="country_code"
+                   placeholder="2 dig. country code (eg.JP)"
+                   style="height:30px;width:150pt;">
+            <input type="submit"
+                   value="Submit Country Code">
+        </form>
+    </div>
+
+</body>
+</html>
