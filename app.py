@@ -56,7 +56,7 @@ def get_country(code):
     # Upper case
     country_code = country_code.upper()
     if country_code != '':
-        result = db.session.query(Capital_city).get(country_code)
+        result = db.session.query.get(country_code)
 
         return result
 
