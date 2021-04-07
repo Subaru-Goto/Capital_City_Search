@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 from flask_migrate import Migrate
 import os
 
 # Create Flask instance
 app = Flask(__name__)
+CORS(app)
 
 
 # fix the discrepancy between sqlalchemy and heroku side postgres -ql
