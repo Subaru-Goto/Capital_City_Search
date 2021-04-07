@@ -46,6 +46,9 @@ city_schema = CitySchema()
 # For Multi variables
 cities_schema = CitySchema(many=True)
 
+@app.route('/', methods=['GET'])
+def index():
+    return {'message':'API is working'}
 
 @app.route('/<string:code>', methods=['GET'])
 def get_country(code):
