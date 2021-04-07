@@ -52,8 +52,13 @@ def index():
 
 @app.route('/<string:code>', methods=['GET'])
 def get_country(code):
-    result = db.session.query(Capital_city).get(code.upper())
-    return city_schema.jsonify(result)
+    country_code = code
+    # Upper case
+    country_code = country_code.upper()
+    if country_code != '':
+        result = db.session.query(Capital_city).get(country_code)
+
+        return result
 
 
 
@@ -61,7 +66,7 @@ def get_country(code):
 #@app.route('/submit', methods=['POST'])
 #def submit():
 #    if request.method == 'POST':
-    #        country_code = request.form['country_code']
+    #        if country_code == '':
     #    if country_code == '':
     #        return render_template('index.html', message='Please enter country code with ISO 2 digits format!!!')
 
