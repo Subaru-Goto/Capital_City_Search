@@ -48,7 +48,7 @@ cities_schema = CitySchema(many=True)
 @app.route('/<string:code>', methods=['GET'])
 def get_country(code):
     result = db.session.query(Capital_city).get(code.upper())
-    return result
+    return city_schema.jsonify(result)
 
 
 
