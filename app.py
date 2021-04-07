@@ -22,8 +22,8 @@ migrate = Migrate(app, db) # handle the migrations for this app
 ma = Marshmallow(app)
 
 # DB class
-class Capital_city(db.Model):
-#    __tablename__ = 'country'
+class country(db.Model):
+    __tablename__ = 'country'
     country_code = db.Column(db.String, primary_key=True, nullable=False)
     country_name = db.Column(db.String(100), unique=True, nullable=True)
     capital_city = db.Column(db.String(100), unique=False, nullable=True)
@@ -56,9 +56,9 @@ def get_country(code):
     # Upper case
     country_code = country_code.upper()
     if country_code != '':
-        result = db.session.query.get(country_code)
+        result = country.query.get(country_code)
 
-        return result
+        return city_schema.jsonify(result)
 
 
 
